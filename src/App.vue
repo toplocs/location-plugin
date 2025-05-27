@@ -2,7 +2,9 @@
   <div className="m-8 max-w-[200px]">
     <SidebarWrapper parentId="test" />
   </div>
-  <SettingsWrapper parentId="test" />
+  <div className="m-8">
+    <SettingsWrapper parentId="test" />
+  </div>
 </template>
 
 <script setup lang="ts">

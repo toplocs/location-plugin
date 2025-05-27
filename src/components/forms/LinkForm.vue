@@ -45,6 +45,7 @@ const onSubmit = async () => {
     if (errorMessage.value.length) return;
     const formData = new FormData(form.value ?? undefined);
     const node = await createLink(formData);
+    form.value?.reset();
   } catch (error) {
     console.error(error);
     errorMessage.value = error.response.data;

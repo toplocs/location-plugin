@@ -24,6 +24,7 @@ export function linkProvider(
     node.then(() => {
       gun.get('links').get(instance).unset(node);
     });
+    links.value = links.value.filter(x => x.id !== id);
   }
 
   onMounted(() => {
