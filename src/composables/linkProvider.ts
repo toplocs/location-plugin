@@ -32,9 +32,9 @@ export function linkProvider(
     .map()
     .once((data) => {
       if (data) {
-        const exists = links.value.some(x => x === data);
+        const exists = links.value.some(x => x.href === data.href);
         if (!exists) {
-         links.value.push(data.link);
+          links.value.push(data);
         }
       }
     });

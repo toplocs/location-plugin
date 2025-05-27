@@ -10,11 +10,13 @@
       </template>
 
       <template #content="{ closeDialog }">
-        <LinkDialog
-          :closeDialog="(x) => {
-            closeDialog()
-          }"
-        />
+        <LinkForm />
+
+        <SubmitButton
+          @click.stop="closeDialog(false)"
+          className="w-full mt-1"
+        > Close
+        </SubmitButton>
       </template>
     </Dialog>
   </div>
@@ -25,11 +27,11 @@
     class="mb-2 dark:text-white"
   > • 
     <a
-      :key="link"
-      :href="link"
+      :key="link.href"
+      :href="link.href"
       target="_blank"
-      class="text-blue-500 hover:text-blue-700 underline"
-    > {{ link }}
+      class="cursor-pointer text-blue-500 hover:text-blue-700 underline"
+    > {{ link.title || link.href }}
     </a>
   </div>
 </template>
@@ -41,7 +43,8 @@ import { useRoute } from 'vue-router';
 import Title from './common/Title.vue';
 import ActionButton from '@/components/common/ActionButton.vue';
 import Dialog from '@/components/common/Dialog.vue';
-import LinkDialog from '@/components/dialog/LinkDialog.vue';
+import SubmitButton from '@/components/common/SubmitButton.vue';
+import LinkForm from '@/components/forms/LinkForm.vue';
 import { useLinks } from '@/composables/linkProvider';
 
 const props = defineProps({

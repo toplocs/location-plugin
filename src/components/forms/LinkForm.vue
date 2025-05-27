@@ -26,13 +26,6 @@
       Submit
     </SubmitButton>
   </form>
-
-  <SubmitButton
-    @click.stop="props.closeDialog(false)"
-    className="w-full mt-1"
-  >
-    Close
-  </SubmitButton>
 </template>
 
 <script setup lang="ts">
@@ -43,12 +36,6 @@ import SubmitButton from '@/components/common/SubmitButton.vue';
 import Callout from '@/components/common/Callout.vue';
 import { useLinks } from '@/composables/linkProvider';
 
-const props = defineProps({
-  closeDialog: {
-    type: Function,
-    required: true,
-  },
-});
 const { links, createLink } = useLinks();
 const form = ref<HTMLFormElement | null>(null);
 const errorMessage = ref('');

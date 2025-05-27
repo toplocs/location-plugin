@@ -8,12 +8,11 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-        name: 'wiki-plugin',
+        name: 'link-plugin',
         filename: 'plugin.js',
         exposes: {
-          './WikiView': './src/views/WikiView.vue',
-          './WikiCreate': './src/views/WikiCreate.vue',
           './Sidebar': './src/views/SidebarWrapper.vue',
+          './Settings': './src/views/SettingsWrapper.vue',
         },
         shared: ['vue']
     }),
