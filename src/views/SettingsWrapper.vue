@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import '../assets/main.css';
 import Title from '@/components/common/Title.vue';
 import Divider from '@/components/common/Divider.vue';
 import LinkForm from '@/components/forms/LinkForm.vue';

@@ -14,7 +14,7 @@ export default defineConfig({
           './Sidebar': './src/views/SidebarWrapper.vue',
           './Settings': './src/views/SettingsWrapper.vue',
         },
-        shared: ['vue']
+        shared: ['vue', 'tailwindcss']
     }),
     topLevelAwait({
       promiseExportName: '__tla',
@@ -34,6 +34,9 @@ export default defineConfig({
   },*/
   build: {
     outDir: './server/views',
+    rollupOptions: {
+      external: ['tailwindcss'],
+    },
     /*lib: {
       entry: 'src/main.ts', // Entry point for the plugin
       name: 'ChatPlugin',

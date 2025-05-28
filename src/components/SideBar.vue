@@ -35,9 +35,8 @@
     </a>
   </div>
 </template>
-
+//
 <script setup lang="ts">
-import '../assets/main.css';
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import Title from './common/Title.vue';
