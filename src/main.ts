@@ -13,14 +13,14 @@ chain.once(data => {
 		});
 
 		const paths = gun.get('location_plugin/paths');
-		paths.set({ path: 'location', component: 'CommunityView' });
+		//paths.set({ path: 'location', component: 'CommunityView' });
 
 		const slots = gun.get('location_plugin/slots');
-		slots.set({ slot: 'InfoView', component: 'Sidebar' });
-		slots.set({ slot: 'Settings', component: 'Sidebar' });
+		slots.set({ slot: 'InfoView', component: 'Main' });
+		slots.set({ slot: 'Settings', component: 'Dialog' });
 
 		const tabs = gun.get('location_plugin/tabs');
-		tabs.set({ value: 'Community', href: 'location' });
+		//tabs.set({ value: 'Community', href: 'location' });
 		
 		node.get('paths').put(paths);
 		node.get('slots').put(slots);

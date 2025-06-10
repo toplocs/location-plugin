@@ -44,10 +44,10 @@ import ActionButton from '@/components/common/ActionButton.vue';
 import Dialog from '@/components/common/Dialog.vue';
 import SubmitButton from '@/components/common/SubmitButton.vue';
 import LinkForm from '@/components/forms/LinkForm.vue';
-import { useLinks } from '@/composables/linkProvider';
+import { useMap } from '@/composables/mapProvider';
 
 const props = defineProps({
   parentId: String,
-})
-const { links } = useLinks();
+});
+const { links } = useMap();
 </script>

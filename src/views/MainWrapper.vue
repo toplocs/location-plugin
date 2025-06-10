@@ -1,9 +1,9 @@
 <template>
-  <Sidebar :parentId="props.parentId" />
+  <MainComponent />
 </template>
 
 <script setup lang="ts">
-import Sidebar from '@/components/SideBar.vue';
+import MainComponent from '@/components/MainComponent.vue';
 import { mapProvider } from '@/composables/mapProvider';
 
 const props = defineProps({

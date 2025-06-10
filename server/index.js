@@ -28,10 +28,10 @@ if (useSSL) {
   };
 
   https.createServer(sslOptions, app).listen(port, () => {
-    console.log(`Link plugin is running with SSL on port ${port}`);
+    console.log(`Location plugin is running with SSL on port ${port}`);
   });
 } else {
   app.listen(port, () => {
-    console.log(`Link plugin is running on HTTP port ${port}`);
+    console.log(`Location plugin is running on HTTP port ${port}`);
   });
 }

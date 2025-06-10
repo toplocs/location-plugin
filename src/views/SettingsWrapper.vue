@@ -1,29 +1,23 @@
 <template>
   <section class="mb-4">
-    <Title>Link Settings</Title>
+    <Title>Map Settings</Title>
     <Divider />
   </section>
 
   <section class="mb-4">
-    <LinkList />
-    <Divider />
-  </section>
-
-  <section>
-    <LinkForm />
+    <MapForm />
   </section>
 </template>
 
 <script setup lang="ts">
 import Title from '@/components/common/Title.vue';
 import Divider from '@/components/common/Divider.vue';
-import LinkForm from '@/components/forms/LinkForm.vue';
-import LinkList from '@/components/LinkList.vue';
-import { linkProvider } from '@/composables/linkProvider';
+import MapForm from '@/components/forms/MapForm.vue';
+import { mapProvider } from '@/composables/mapProvider';
 
 const props = defineProps({
   parentId: String,
 });
 
-linkProvider(props.parentId);
+mapProvider(props.parentId);
 </script>

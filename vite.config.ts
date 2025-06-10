@@ -11,7 +11,7 @@ export default defineConfig({
         name: 'link-plugin',
         filename: 'plugin.js',
         exposes: {
-          './Sidebar': './src/views/SidebarWrapper.vue',
+          './Main': './src/views/MainWrapper.vue',
           './Settings': './src/views/SettingsWrapper.vue',
         },
         shared: ['vue', 'tailwindcss']
@@ -26,9 +26,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  /*server: {
-    port: 3000,
-  },*/
+  server: {
+    //port: 3000,
+  },
   /*define: {
     'process.env': {},
   },*/
