@@ -7,8 +7,8 @@ let __tla = (async () => {
     "_export_sfc"
   ]);
   let b = {
-    "./Main": () => (y([], false, "./Main"), E("./__federation_expose_Main-BVMpHMMI.js").then((e) => Object.keys(e).every((n) => p.has(n)) ? () => e.default : () => e)),
-    "./Settings": () => (y([], false, "./Settings"), E("./__federation_expose_Settings-13gKvEiP.js").then((e) => Object.keys(e).every((n) => p.has(n)) ? () => e.default : () => e))
+    "./Main": () => (y([], false, "./Main"), E("./__federation_expose_Main-jPFf1Dq-.js").then((e) => Object.keys(e).every((n) => p.has(n)) ? () => e.default : () => e)),
+    "./Settings": () => (y([], false, "./Settings"), E("./__federation_expose_Settings-DQBp0S7v.js").then((e) => Object.keys(e).every((n) => p.has(n)) ? () => e.default : () => e))
   };
   let w;
   w = {};

@@ -1,7 +1,6 @@
 <template>
-  <div class="max-w-md mx-auto">
+  <div class="max-w-xl mx-auto">
     <MainComponent />
-    <MapForm />
   </div>
 </template>
 
@@ -11,5 +10,5 @@ import MapForm from '@/components/forms/MapForm.vue';
 import MainComponent from '@/components/MainComponent.vue';
 import { mapProvider } from '@/composables/mapProvider';
 
-mapProvider('Test');
+mapProvider('0aa63ffe-5452-4057-bcd5-8501a1862cee');
 </script>

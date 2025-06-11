@@ -1,6 +1,6 @@
 import { importShared as e, __tla as __tla_0 } from "./__federation_fn_import-D2rRIDFP.js";
-import { _ as r, __tla as __tla_1 } from "./MainComponent.vue_vue_type_script_setup_true_lang-BZiSPD_J.js";
-import { m as t, __tla as __tla_2 } from "./mapProvider-ar0BglKS.js";
+import { _ as r, __tla as __tla_1 } from "./MainComponent.vue_vue_type_script_setup_true_lang-DCpjJUqs.js";
+import { m as t, __tla as __tla_2 } from "./mapProvider-BLlWqujm.js";
 let d;
 let __tla = Promise.all([
   (() => {

@@ -5,7 +5,8 @@ export function mapProvider(
   instance: string,
 ) {
   const current = ref(null);
-  const children = ref([]);
+  const places = ref([]);
+  const locationToLocation = ['in']; //über gun lösen
 
   const createLocation = async (formData: FormData) => {
     const data = Object.fromEntries(formData.entries());
@@ -29,15 +30,27 @@ export function mapProvider(
       }
     });
 
-    gun.get('relations')
-    .get(instance)
+    // get relations
+    gun.get(instance)
+    .get('relations')
     .map()
-    .once((data) => {
-      if (data) {
-        console.log(data);
-        const exists = children.value.some(x => x.href === data.href);
-        if (!exists) {
-          children.value.push(data);
+    .once(async (rel) => {
+      if (rel) {
+        const populated = await gun.lookup('spheres', rel.one);
+        if (locationToLocation.includes(rel.type)) {
+          gun.get(`location-plugin/${rel.one}`)
+          .once((data) => {
+            if (data) {
+              places.value.push({
+                id: rel.one,
+                title: populated.title,
+                position: {
+                  lat: Number(data.lat),
+                  lng: Number(data.lng),
+                },
+              });
+            }
+          });
         }
       }
     });
@@ -45,7 +58,7 @@ export function mapProvider(
 
   provide('map', {
     current,
-    children,
+    places,
     createLocation,
   });
 }

@@ -1,7 +1,7 @@
 import { importShared as a, __tla as __tla_0 } from "./__federation_fn_import-D2rRIDFP.js";
-import { _ as u, __tla as __tla_1 } from "./MapForm.vue_vue_type_script_setup_true_lang-CpReymhd.js";
-import { _ as m, __tla as __tla_2 } from "./MainComponent.vue_vue_type_script_setup_true_lang-BZiSPD_J.js";
-import { m as d, g as s, __tla as __tla_3 } from "./mapProvider-ar0BglKS.js";
+import { __tla as __tla_1 } from "./MapForm.vue_vue_type_script_setup_true_lang-CYEfmmNw.js";
+import { _ as p, __tla as __tla_2 } from "./MainComponent.vue_vue_type_script_setup_true_lang-DCpjJUqs.js";
+import { m as u, g as s, __tla as __tla_3 } from "./mapProvider-BLlWqujm.js";
 Promise.all([
   (() => {
     try {
@@ -49,20 +49,19 @@ Promise.all([
       fetch(e.href, t);
     }
   })();
-  const { defineComponent: f } = await a("vue"), { createVNode: l, openBlock: g, createElementBlock: _ } = await a("vue"), h = {
-    class: "max-w-md mx-auto"
-  }, y = f({
+  const { defineComponent: d } = await a("vue"), { createVNode: f, openBlock: m, createElementBlock: g } = await a("vue"), _ = {
+    class: "max-w-xl mx-auto"
+  }, h = d({
     __name: "App",
     setup(r) {
-      return d("Test"), (o, i) => (g(), _("div", h, [
-        l(m),
-        l(u)
+      return u("0aa63ffe-5452-4057-bcd5-8501a1862cee"), (o, i) => (m(), g("div", _, [
+        f(p)
       ]));
     }
-  }), { createApp: b } = await a("vue"), p = s.get("location_plugin");
-  p.once((r) => {
+  }), { createApp: y } = await a("vue"), l = s.get("location_plugin");
+  l.once((r) => {
     if (!r) {
-      const o = p.put({
+      const o = l.put({
         id: "location_plugin",
         name: "Location",
         url: "http://localhost:3007/assets/plugin.js"
@@ -78,6 +77,6 @@ Promise.all([
       o.get("paths").put(i), o.get("slots").put(n), o.get("tabs").put(e), s.get("plugins").set(o), console.log("Location plugin has been added to the gun plugin list", o);
     }
   });
-  const v = b(y);
-  v.mount("#location-plugin");
+  const b = y(h);
+  b.mount("#location-plugin");
 });
