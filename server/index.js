@@ -5,8 +5,9 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const dotenv = require('dotenv').config();
+const Gun = require('gun');
 
-const port = Number(process.env.PORT);
+const port = Number(process.env.PORT || 8765);
 const useSSL = process.env.USE_SSL === 'true';
 const privkey = process.env.PRIVKEY;
 const fullchain = process.env.FULLCHAIN;
@@ -21,17 +22,49 @@ app.use(cors({
   optionsSuccessStatus: 200
 }));
 
+let server;
 if (useSSL) {
   const sslOptions = {
     key: fs.readFileSync(privkey),
     cert: fs.readFileSync(fullchain)
   };
 
-  https.createServer(sslOptions, app).listen(port, () => {
-    console.log(`Location plugin is running with SSL on port ${port}`);
-  });
+  server = https.createServer(sslOptions, app);
 } else {
-  app.listen(port, () => {
-    console.log(`Location plugin is running on HTTP port ${port}`);
-  });
+  server = http.createServer(app);
 }
+
+const gun = Gun({ web: server });
+
+server.listen(port, () => {
+  console.log(`Server with Gun running on ${useSSL ? 'https' : 'http'}://localhost:${port}`);
+});
+
+// initialize plugin to the gun eco
+const chain = gun.get('location_plugin');
+chain.once(data => {
+  if (!data) {
+    const node = chain.put({
+      id: 'location_plugin',
+      name: 'Location',
+      url: 'http://localhost:3007/assets/plugin.js',
+    });
+
+    const paths = gun.get('location_plugin/paths');
+    //paths.set({ path: 'location', component: 'CommunityView' });
+
+    const slots = gun.get('location_plugin/slots');
+    slots.set({ slot: 'InfoView', component: 'Main' });
+    slots.set({ slot: 'Settings', component: 'Dialog' });
+
+    const tabs = gun.get('location_plugin/tabs');
+    //tabs.set({ value: 'Community', href: 'location' });
+    
+    node.get('paths').put(paths);
+    node.get('slots').put(slots);
+    node.get('tabs').put(tabs);
+    gun.get('plugins').set(node);
+
+    console.warn('🧩 Location plugin has been added to the gun plugin list');
+  }
+});
