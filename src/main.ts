@@ -2,7 +2,7 @@ import './assets/main.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import gun from './gun';
-
+/*
 const chain = gun.get('location_plugin');
 chain.once(data => {
 	if (!data) {
@@ -30,7 +30,7 @@ chain.once(data => {
 		console.log('Location plugin has been added to the gun plugin list', node);
 	}
 });
-
+*/
 
 const app = createApp(App)
 
