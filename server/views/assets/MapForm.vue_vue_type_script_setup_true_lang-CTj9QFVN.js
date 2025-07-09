@@ -1,5 +1,5 @@
 import { importShared as a, __tla as __tla_0 } from "./__federation_fn_import-D2rRIDFP.js";
-import { u as N, a as B, _ as S, __tla as __tla_1 } from "./mapProvider-BLlWqujm.js";
+import { u as N, a as B, _ as S, __tla as __tla_1 } from "./mapProvider-BXknw2-L.js";
 let ne;
 let __tla = Promise.all([
   (() => {

@@ -40,6 +40,7 @@ server.listen(port, () => {
   console.log(`Server with Gun running on ${useSSL ? 'https' : 'http'}://localhost:${port}`);
 });
 
+/*
 // initialize plugin to the gun eco
 const chain = gun.get('location_plugin');
 chain.once(data => {
@@ -47,7 +48,7 @@ chain.once(data => {
     const node = chain.put({
       id: 'location_plugin',
       name: 'Location',
-      url: 'http://localhost:3007/assets/plugin.js',
+      url: 'https://tribelike.com:3007/assets/plugin.js',
     });
 
     const paths = gun.get('location_plugin/paths');
@@ -68,3 +69,4 @@ chain.once(data => {
     console.warn('🧩 Location plugin has been added to the gun plugin list');
   }
 });
+*/

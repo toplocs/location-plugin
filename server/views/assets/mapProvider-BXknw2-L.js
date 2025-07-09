@@ -1,6 +1,6 @@
 import { importShared as he, __tla as __tla_0 } from "./__federation_fn_import-D2rRIDFP.js";
 import { c as yt, b as Ot, a as je } from "./_commonjs-dynamic-modules-D9Q0Knnx.js";
-let Mr, Pr, V, Nr, Lr;
+let Mr, Pr, Nr, Lr;
 let __tla = Promise.all([
   (() => {
     try {
@@ -4944,7 +4944,7 @@ let __tla = Promise.all([
       [S[Y].put[Y][ht]]: null
     }), this;
   };
-  V = jr([
+  const V = jr([
     "http://localhost:3000/gun"
   ]);
   V.clear = function() {
@@ -5010,7 +5010,6 @@ export {
   Mr as _,
   __tla,
   Pr as a,
-  V as g,
   Nr as m,
   Lr as u
 };

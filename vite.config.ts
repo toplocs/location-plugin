@@ -11,6 +11,7 @@ export default defineConfig({
         name: 'link-plugin',
         filename: 'plugin.js',
         exposes: {
+          './config': './src/config.ts',
           './Main': './src/views/MainWrapper.vue',
           './Settings': './src/views/SettingsWrapper.vue',
         },
