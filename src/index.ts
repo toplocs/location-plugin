@@ -23,7 +23,7 @@ const pluginConfig: BasePluginConfig = {
   name: 'Location',
   url: 'http://localhost:3006/assets/plugin.js',
   version: '1.0.0',
-  description: 'Share and organize links within TopLocs spheres',
+  description: 'Share and organize locations within TopLocs spheres',
   author: 'TopLocs Team',
   slots: [
     { entity: 'Topic', page: 'Info', slot: 'Content', component: 'MainView' },
