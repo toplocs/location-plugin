@@ -10,5 +10,7 @@ const props = defineProps({
   parentId: String,
 });
 
-mapProvider(props.parentId);
+if (props.parentId) {
+  mapProvider(props.parentId);
+}
 </script>

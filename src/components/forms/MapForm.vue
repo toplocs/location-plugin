@@ -33,27 +33,33 @@ import Callout from '@/components/common/Callout.vue';
 import MapComponent from '@/components/MapComponent.vue';
 import { useMap } from '@/composables/mapProvider';
 
+interface LocationValue {
+  lat: number;
+  lng: number;
+  zoom: number;
+}
+
 const { createLocation } = useMap();
 const form = ref<HTMLFormElement | null>(null);
 const errorMessage = ref('');
 const successMessage = ref('');
-const location = ref(null);
+const location = ref<LocationValue | null>(null);
 
 const onSubmit = async () => {
   try {
     if (!location.value) throw new Error('No location was selected')
     if (errorMessage.value.length) return;
     const formData = new FormData(form.value ?? undefined);
-    formData.append('lat', location.value?.lat);
-    formData.append('lng', location.value?.lng);
-    formData.append('zoom', location.value?.zoom);
+    formData.append('lat', String(location.value.lat));
+    formData.append('lng', String(location.value.lng));
+    formData.append('zoom', String(location.value.zoom));
     const node = await createLocation(formData);
     successMessage.value = 'The location has been saved successfully!';
 
     form.value?.reset();
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    errorMessage.value = error.response.data;
+    errorMessage.value = error?.response?.data || 'An error occurred';
   }
 }
 

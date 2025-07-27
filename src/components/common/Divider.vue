@@ -9,7 +9,10 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  direction: 'horizontal',
-});
+const props = defineProps<{
+  direction?: 'horizontal' | 'vertical'
+}>();
+
+// Provide default value
+const direction = props.direction || 'horizontal';
 </script>
