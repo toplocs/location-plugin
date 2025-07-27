@@ -7,29 +7,75 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-.DS_Store
-dist
-dist-ssr
-coverage
-*.local
-*.env
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# Build outputs
+# Testing
+coverage/
+*.lcov
+.nyc_output
+
+# Production
 dist/
-server/views/
+dist-ssr/
+*.local
 
-/cypress/videos/
-/cypress/screenshots/
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
+.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
+# TypeScript
 *.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Package manager
+.npm
+.yarn-integrity
+.yarn/
+package-lock.json
+yarn.lock
+
+# Build artifacts
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+
+# Misc
+*.sublime-workspace
+*.sublime-project
+.history/
+.temp/
+tmp/
+temp/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
