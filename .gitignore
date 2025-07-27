@@ -21,6 +21,7 @@ coverage/
 dist/
 dist-ssr/
 *.local
+server/views/
 
 # Environment files
 .env
