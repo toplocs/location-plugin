@@ -1,11 +1,35 @@
 import { ref, inject, provide, computed, onMounted, onUnmounted } from 'vue';
+import type { Ref, InjectionKey } from 'vue';
 import gun from '../gun';
+
+interface LocationData {
+  lat: number;
+  lng: number;
+  zoom: number;
+}
+
+interface Place {
+  id: string;
+  title: string;
+  position: {
+    lat: number;
+    lng: number;
+  };
+}
+
+interface MapContext {
+  current: Ref<LocationData | null>;
+  places: Ref<Place[]>;
+  createLocation: (formData: FormData) => Promise<any>;
+}
+
+const mapKey: InjectionKey<MapContext> = Symbol('map');
 
 export function mapProvider(
   instance: string,
 ) {
-  const current = ref(null);
-  const places = ref([]);
+  const current = ref<LocationData | null>(null);
+  const places = ref<Place[]>([]);
   const locationToLocation = ['in']; //über gun lösen
 
   const createLocation = async (formData: FormData) => {
@@ -20,7 +44,7 @@ export function mapProvider(
 
   onMounted(async () => {
     gun.get(`location-plugin/${instance}`)
-    .once((data) => {
+    .once((data: any) => {
       if (data) {
         current.value = {
           lat: Number(data.lat),
@@ -34,16 +58,16 @@ export function mapProvider(
     gun.get(instance)
     .get('relations')
     .map()
-    .once(async (rel) => {
-      if (rel) {
+    .once(async (rel: any) => {
+      if (rel && gun.lookup) {
         const populated = await gun.lookup('spheres', rel.one);
         if (locationToLocation.includes(rel.type)) {
           gun.get(`location-plugin/${rel.one}`)
-          .once((data) => {
+          .once((data: any) => {
             if (data) {
               places.value.push({
                 id: rel.one,
-                title: populated.title,
+                title: populated?.title || '',
                 position: {
                   lat: Number(data.lat),
                   lng: Number(data.lng),
@@ -56,7 +80,7 @@ export function mapProvider(
     });
   });
 
-  provide('map', {
+  provide(mapKey, {
     current,
     places,
     createLocation,
@@ -64,7 +88,7 @@ export function mapProvider(
 }
 
 export function useMap() {
-  const data = inject('map');
+  const data = inject(mapKey);
 
   if (!data) {
     throw new Error('Composable must have an map provider.');

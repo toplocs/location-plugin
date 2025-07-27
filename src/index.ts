@@ -14,6 +14,8 @@ interface BasePluginConfig {
 }
 
 interface PluginSlot {
+  entity?: string;
+  page?: string;
   slot: string;
   component: string;
 }
