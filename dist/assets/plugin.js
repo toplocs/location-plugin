@@ -8,17 +8,13 @@ let __tla = (async () => {
     "_export_sfc"
   ]);
   let moduleMap = {
-    "./PluginConfig": () => {
-      dynamicLoadingCss([], false, "./PluginConfig");
-      return __federation_import("./__federation_expose_PluginConfig-jxRq1pbo.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    "./Main": () => {
+      dynamicLoadingCss([], false, "./Main");
+      return __federation_import("./__federation_expose_Main-4m9EifVG.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
     },
-    "./SidebarView": () => {
-      dynamicLoadingCss([], false, "./SidebarView");
-      return __federation_import("./__federation_expose_SidebarView-CqBSqgkG.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
-    },
-    "./SettingsView": () => {
-      dynamicLoadingCss([], false, "./SettingsView");
-      return __federation_import("./__federation_expose_SettingsView-BD9boCpj.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    "./Settings": () => {
+      dynamicLoadingCss([], false, "./Settings");
+      return __federation_import("./__federation_expose_Settings-CRz1w3BJ.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
     }
   };
   const seen = {};
@@ -65,7 +61,7 @@ let __tla = (async () => {
         href = cssPath;
       }
       if (dontAppendStylesToHead) {
-        const key = "css__link-plugin__" + exposeItemName;
+        const key = "css__location-plugin__" + exposeItemName;
         window[key] = window[key] || [];
         window[key].push(href);
         return;

@@ -15,6 +15,9 @@ coverage
 *.local
 *.env
 
+# Old build output location (can be removed after migration)
+server/views/
+
 /cypress/videos/
 /cypress/screenshots/
 
