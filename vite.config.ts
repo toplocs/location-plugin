@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-        name: 'link-plugin',
+        name: 'location-plugin',
         filename: 'plugin.js',
         exposes: {
           './Main': './src/views/MainWrapper.vue',
@@ -29,27 +29,20 @@ export default defineConfig({
   server: {
     //port: 3000,
   },
-  /*define: {
-    'process.env': {},
-  },*/
   build: {
-    outDir: './server/views',
-    rollupOptions: {
-      external: ['tailwindcss'],
+    outDir: './dist',
+    minify: false,
+    terserOptions: {
+      compress: false,
+      mangle: false,
     },
-    /*lib: {
-      entry: 'src/main.ts', // Entry point for the plugin
-      name: 'ChatPlugin',
-      fileName: (format) => `ChatPlugin.${format}.js`
-    },*/
-    /*rollupOptions: {
-      // Ensure the component can be imported by the main app
+    rollupOptions: {
       external: ['vue'],
       output: {
         globals: {
           vue: 'Vue'
         }
       }
-    }*/
+    }
   }
 });
