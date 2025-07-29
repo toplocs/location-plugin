@@ -30,6 +30,9 @@ export default defineConfig({
   server: {
     //port: 3000,
   },
+  optimizeDeps: {
+    exclude: ['@toplocs/plugin-sdk'],
+  },
   build: {
     outDir: './dist',
     assetsDir: '',
@@ -43,7 +46,7 @@ export default defineConfig({
         main: path.resolve(__dirname, 'index.html'),
         landing: path.resolve(__dirname, 'landing.html')
       },
-      external: ['vue'],
+      external: ['vue', '@toplocs/plugin-sdk'],
       output: {
         globals: {
           vue: 'Vue'

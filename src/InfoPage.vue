@@ -1,5 +1,14 @@
 <template>
-  <PluginInfoPage
+  <!-- Temporarily disable SDK component due to build issues -->
+  <div class="p-8">
+    <h1 class="text-3xl font-bold mb-4">📍 Location Plugin</h1>
+    <p class="mb-4">{{ about }}</p>
+    <h2 class="text-xl font-semibold mb-2">Features</h2>
+    <ul class="list-disc pl-5 mb-4">
+      <li v-for="feature in features" :key="feature">{{ feature }}</li>
+    </ul>
+  </div>
+  <!-- <PluginInfoPage
     :plugin-config="pluginConfig"
     icon="📍"
     :about="about"
@@ -7,11 +16,11 @@
     :endpoints="endpoints"
     :development="development"
     :slot-descriptions="slotDescriptions"
-  />
+  /> -->
 </template>
 
 <script setup lang="ts">
-import { PluginInfoPage } from '@toplocs/plugin-sdk'
+// import { PluginInfoPage } from '@toplocs/plugin-sdk'
 import pluginConfig from './index'
 
 const about = `
