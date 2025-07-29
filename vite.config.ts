@@ -11,7 +11,7 @@ export default defineConfig({
         name: 'location-plugin',
         filename: 'plugin.js',
         exposes: {
-          './PluginConfig': './src/plugin.ts',
+          './PluginConfig': './src/config.ts',
           './Main': './src/views/MainWrapper.vue',
           './Settings': './src/views/SettingsWrapper.vue',
         },
