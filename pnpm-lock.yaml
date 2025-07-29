@@ -12,8 +12,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(vue@3.5.18(typescript@5.5.4))
       '@toplocs/plugin-sdk':
-        specifier: github:toplocs/plugin-sdk
-        version: https://codeload.github.com/toplocs/plugin-sdk/tar.gz/27bcf418ba132a81456e6690f63fb2990bab1027(vue-router@4.5.1(vue@3.5.18(typescript@5.5.4)))(vue@3.5.18(typescript@5.5.4))
+        specifier: ^1.1.0
+        version: 1.1.0(vue-router@4.5.1(vue@3.5.18(typescript@5.5.4)))(vue@3.5.18(typescript@5.5.4))
       gun:
         specifier: ^0.2020.1240
         version: 0.2020.1241
@@ -618,9 +618,8 @@ packages:
   '@swc/wasm@1.13.3':
     resolution: {integrity: sha512-ZhQfKxqFvrifksN8znSzes/oyfr8Q4mpKP0T8tYS/AaUzm/7v5OK22VlcTHR1gXHEtp16dlR8w+vYTFDCaUmnw==}
 
-  '@toplocs/plugin-sdk@https://codeload.github.com/toplocs/plugin-sdk/tar.gz/27bcf418ba132a81456e6690f63fb2990bab1027':
-    resolution: {tarball: https://codeload.github.com/toplocs/plugin-sdk/tar.gz/27bcf418ba132a81456e6690f63fb2990bab1027}
-    version: 1.1.0
+  '@toplocs/plugin-sdk@1.1.0':
+    resolution: {integrity: sha512-PQgDLopeIxaeMLq1WdoIEUz84HDBZ4UARR9CN3v+KhW+AUEpkfptr+acP8ebX9IXOOc9EDrMZZuQz5Fea2K7Rg==}
     peerDependencies:
       vue: ^3.0.0
       vue-router: ^4.0.0
@@ -2530,7 +2529,7 @@ snapshots:
 
   '@swc/wasm@1.13.3': {}
 
-  '@toplocs/plugin-sdk@https://codeload.github.com/toplocs/plugin-sdk/tar.gz/27bcf418ba132a81456e6690f63fb2990bab1027(vue-router@4.5.1(vue@3.5.18(typescript@5.5.4)))(vue@3.5.18(typescript@5.5.4))':
+  '@toplocs/plugin-sdk@1.1.0(vue-router@4.5.1(vue@3.5.18(typescript@5.5.4)))(vue@3.5.18(typescript@5.5.4))':
     dependencies:
       '@originjs/vite-plugin-federation': 1.4.1
       vue: 3.5.18(typescript@5.5.4)
