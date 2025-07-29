@@ -2,6 +2,9 @@ import './assets/main.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import gun from './gun';
+
+const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
+
 /*
 const chain = gun.get('location_plugin');
 chain.once(data => {
@@ -9,7 +12,7 @@ chain.once(data => {
 		const node = chain.put({
 			id: 'location_plugin',
 			name: 'Location',
-			url: 'http://localhost:3007/plugin.js',
+			url: `${baseUrl}/plugin.js`,
 		});
 
 		const paths = gun.get('location_plugin/paths');
