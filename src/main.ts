@@ -9,7 +9,7 @@ chain.once(data => {
 		const node = chain.put({
 			id: 'location_plugin',
 			name: 'Location',
-			url: 'http://localhost:3007/assets/plugin.js',
+			url: 'http://localhost:3007/plugin.js',
 		});
 
 		const paths = gun.get('location_plugin/paths');

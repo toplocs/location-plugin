@@ -11,6 +11,7 @@ export default defineConfig({
         name: 'location-plugin',
         filename: 'plugin.js',
         exposes: {
+          './PluginConfig': './src/plugin.ts',
           './Main': './src/views/MainWrapper.vue',
           './Settings': './src/views/SettingsWrapper.vue',
         },
@@ -39,8 +40,8 @@ export default defineConfig({
     },
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'index.html'),
-        landing: path.resolve(__dirname, 'landing.html')
+        plugin: path.resolve(__dirname, 'plugin.html'),
+        index: path.resolve(__dirname, 'index.html')
       },
       external: ['vue'],
       output: {
