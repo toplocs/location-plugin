@@ -23,7 +23,7 @@ interface PluginSlot {
 const pluginConfig: BasePluginConfig = {
   id: 'location_plugin',
   name: 'Location',
-  url: 'http://localhost:3006/assets/plugin.js',
+  url: 'https://toplocs.github.io/location-plugin/assets/plugin.js',
   version: '1.0.0',
   description: 'Share and organize locations within TopLocs spheres',
   author: 'TopLocs Team',
