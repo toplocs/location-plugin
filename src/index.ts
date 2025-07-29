@@ -20,10 +20,12 @@ interface PluginSlot {
   component: string;
 }
 
+const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
+
 const pluginConfig: BasePluginConfig = {
   id: 'location_plugin',
   name: 'Location',
-  url: 'https://toplocs.github.io/location-plugin/assets/plugin.js',
+  url: `${baseUrl}/plugin.js`,
   version: '1.0.0',
   description: 'Share and organize locations within TopLocs spheres',
   author: 'TopLocs Team',
