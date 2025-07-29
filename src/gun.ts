@@ -2,7 +2,13 @@ import Gun from 'gun' // You can also use 'gun' here
 import 'gun/sea' // Optional: for user authentication
 import 'gun/lib/unset'; //optional
 
-const gun = Gun(['http://localhost:3000/gun']) as any;
+// Use Gun.js peers from environment or default to common peers
+const peers = import.meta.env.VITE_GUN_PEERS?.split(',') || [
+  'https://gun-manhattan.herokuapp.com/gun',
+  'https://relay.peers.community/gun',
+  'https://gun-sjc.herokuapp.com/gun'
+];
+const gun = Gun(peers) as any;
 
 gun.clear = function() {
 	// Clear localStorage
