@@ -3,35 +3,50 @@ import path from 'path';
 import vue from '@vitejs/plugin-vue';
 import federation from "@originjs/vite-plugin-federation";
 import topLevelAwait from 'vite-plugin-top-level-await';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
+// Plugin configuration - supports both dev and preview modes
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     federation({
-        name: 'location-plugin',
-        filename: 'plugin.js',
-        exposes: {
-          './PluginConfig': './src/index.ts',
-          './Main': './src/views/MainWrapper.vue',
-          './Settings': './src/views/SettingsWrapper.vue',
-        },
-        shared: ['vue', 'tailwindcss']
+      name: 'location-plugin',
+      filename: 'plugin.js',
+      exposes: {
+        './PluginConfig': './src/index.ts',
+        './Main': './src/views/MainWrapper.vue',
+        './Settings': './src/views/SettingsWrapper.vue',
+      },
+      shared: ['vue'],
+      remotes: {
+        remoteName: '',
+      },
     }),
     topLevelAwait({
       promiseExportName: '__tla',
       promiseImportName: i => `__tla_${i}`
     })
   ],
+
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer,
+      ],
+    },
+  },
+  
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  server: {
-    //port: 3000,
-  },
+
   optimizeDeps: {
-    exclude: ['@toplocs/plugin-sdk'],
+    exclude: ["__federation__"],
   },
   build: {
     outDir: './dist',
@@ -46,7 +61,7 @@ export default defineConfig({
         main: path.resolve(__dirname, 'index.html'),
         landing: path.resolve(__dirname, 'landing.html')
       },
-      external: ['vue', '@toplocs/plugin-sdk'],
+      external: ['vue'],
       output: {
         globals: {
           vue: 'Vue'
