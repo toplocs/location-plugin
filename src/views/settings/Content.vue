@@ -19,7 +19,8 @@ const props = defineProps({
   parentId: String,
 });
 
-if (props.parentId) {
-  mapProvider(props.parentId);
-}
+console.log("Location plugin settings content loaded: ", props.parentId);
+
+// Call mapProvider immediately to set up the provide/inject context
+mapProvider(props.parentId ?? 'test');
 </script>
