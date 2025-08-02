@@ -3,22 +3,7 @@
  * This file defines the plugin configuration and exports it for use in TopLocs
  */
 
-interface BasePluginConfig {
-  id: string;
-  name: string;
-  url: string;
-  version?: string;
-  description?: string;
-  author?: string;
-  slots: Array<PluginSlot>;
-}
-
-interface PluginSlot {
-  entity?: string;
-  page?: string;
-  slot: string;
-  component: string;
-}
+import type { BasePluginConfig } from '@toplocs/plugin-sdk'
 
 const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
 
@@ -30,8 +15,10 @@ const pluginConfig: BasePluginConfig = {
   description: 'Share and organize locations within TopLocs spheres',
   author: 'TopLocs Team',
   slots: [
-    { entity: 'Topic', page: 'Info', slot: 'Content', component: 'MainView' },
-    { entity: 'Topic', page: 'Settings', slot: 'Content', component: 'SettingsView' },
+    { entity: 'Topic', page: 'Info', slot: 'Content', component: 'InfoContent' },
+    { entity: 'Topic', page: 'Settings', slot: 'Content', component: 'SettingsContent' },
+    { entity: 'Location', page: 'Info', slot: 'Content', component: 'InfoContent' },
+    { entity: 'Location', page: 'Settings', slot: 'Content', component: 'SettingsContent' }
   ]
 };
 
