@@ -1,8 +1,9 @@
 # Location Plugin for TopLocs
 
-## Status: Pure P2P Architecture ✅
+## Status: Plugin SDK Integration ✅
 - **P2P Migration**: ⭐⭐⭐⭐⭐ Fully migrated to Gun.js
-- **Last Updated**: July 2025
+- **Plugin SDK**: ⭐⭐⭐⭐⭐ Fully integrated with @toplocs/plugin-sdk
+- **Last Updated**: August 2025
 - **Maturity**: Active Development
 
 ## Overview
@@ -21,6 +22,7 @@ Browser Client → Gun.js → P2P Network
 
 ### Technology Stack
 - **Frontend**: Vue 3, TypeScript, Tailwind CSS
+- **Plugin Framework**: @toplocs/plugin-sdk for standardized plugin development
 - **Maps**: Google Maps (via vue3-google-map)
 - **P2P Database**: Gun.js for all data storage
 - **Build**: Vite with Module Federation
@@ -90,32 +92,38 @@ Create a `.env` file based on `.env.default`:
 - `VITE_MAPS_API_KEY`: Your Google Maps API key (required)
 
 ### Available Scripts
-- `pnpm dev`: Start development server on port 3009
-- `pnpm build`: Build for production
-- `pnpm lint`: Run ESLint
-- `pnpm lint:fix`: Fix ESLint issues
+- `pnpm dev`: Start development server with Plugin SDK environment
+- `pnpm build`: Build for production with module federation
+- `pnpm preview`: Preview built plugin with federation server on port 3007
+- `pnpm test`: Run tests with Vitest
 - `pnpm type-check`: Run TypeScript type checking
+- `pnpm lint`: Run ESLint with auto-fix
 
 ### Module Federation Configuration
 The plugin exposes components via Module Federation:
-- `./Main`: Main location view (map display with markers)
-- `./Settings`: Settings view (location configuration)
+- `./PluginConfig`: Plugin configuration and metadata
+- `./InfoContent`: Map component for Info content slots
+- `./SettingsContent`: Settings form for configuration
 
 ## Project Structure
 ```
 location-plugin/
+├── index.ts              # Plugin development environment setup
 ├── src/
 │   ├── components/        # Vue components
 │   │   ├── common/       # Reusable UI components
-│   │   └── map/          # Map-specific components
+│   │   ├── MainComponent.vue # Map display component
+│   │   └── MapComponent.vue  # Google Maps integration
 │   ├── composables/      # Vue composables
-│   │   └── mapProvider.ts # Map state management
+│   │   └── mapProvider.ts # Map state management with provide/inject
 │   ├── services/         # Service layer
-│   │   └── gunService.ts # Gun.js integration
-│   ├── views/            # Main plugin views
-│   │   ├── Main.vue      # Map display view
-│   │   └── Settings.vue  # Location settings
-│   └── index.ts          # Plugin configuration
+│   │   └── gun.ts        # Gun.js integration
+│   ├── views/            # Plugin slot components
+│   │   ├── info/         # Info page components
+│   │   │   └── Content.vue # Map component for Info Content slot
+│   │   └── settings/     # Settings page components
+│   │       └── Content.vue # Settings form for Settings Content slot
+│   └── index.ts          # Plugin configuration with @toplocs/plugin-sdk
 ├── public/               # Static assets
 ├── vite.config.ts        # Vite + Module Federation config
 └── package.json          # Dependencies and scripts
@@ -123,16 +131,19 @@ location-plugin/
 
 ## Integration with TopLocs
 The plugin integrates with TopLocs through:
-1. **Module Federation**: Dynamically loaded at runtime
-2. **Gun.js Data Layer**: Shares the same P2P database
-3. **Plugin Configuration**: Defines slots for Topic entities
-4. **Shared Dependencies**: Vue 3 and Tailwind CSS
+1. **@toplocs/plugin-sdk**: Standardized plugin development framework
+2. **Module Federation**: Dynamically loaded at runtime via federation
+3. **Gun.js Data Layer**: Shares the same P2P database
+4. **Plugin Slots**: Defines Content slots for Topic and Location entities
+5. **Shared Dependencies**: Vue 3 and Tailwind CSS
 
-## Migration to @toplocs/plugin-sdk
-Currently, the plugin uses direct Module Federation configuration. Future plans include:
-- [ ] Integrate with @toplocs/plugin-sdk for standardized plugin development
-- [ ] Use SDK's development environment for testing
-- [ ] Leverage SDK's common utilities and types
+## Plugin SDK Integration ✅
+The plugin is fully integrated with @toplocs/plugin-sdk:
+- ✅ Uses BasePluginConfig type for standardized configuration
+- ✅ Implements createPluginDevelopmentEnvironment for testing
+- ✅ Proper component slot mapping (InfoContent, SettingsContent)
+- ✅ Development and preview modes with module federation
+- ✅ Clean component architecture following SDK patterns
 
 ## Known Limitations
 - **Google Maps Dependency**: Requires API key and internet connection
@@ -158,9 +169,29 @@ Currently, the plugin uses direct Module Federation configuration. Future plans 
    - Location history and tracks
    - Geofencing for community boundaries
 
+## Recent Changes (ai-powered branch)
+This branch includes a complete restructuring to match the link-plugin architecture:
+
+### Major Updates
+- **Plugin SDK Integration**: Full migration to @toplocs/plugin-sdk framework
+- **Component Restructuring**: Organized views into info/ and settings/ directories
+- **Module Federation**: Updated to expose InfoContent and SettingsContent
+- **Development Environment**: Added SDK-based development setup with createPluginDevelopmentEnvironment
+- **Build Configuration**: Updated Vite config for proper federation and component exposure
+- **Provider Context**: Fixed mapProvider setup for proper Vue provide/inject pattern
+
+### Architecture Changes
+```
+Old Structure:                New Structure:
+src/views/MainView.vue    →   src/views/info/Content.vue
+src/views/SettingsView.vue →  src/views/settings/Content.vue
+Direct federation setup   →   SDK-based development environment
+Manual type definitions   →   @toplocs/plugin-sdk types
+```
+
 ## Contributing
 Contributions are welcome! Priority areas:
-- Migration to @toplocs/plugin-sdk
+- ✅ ~~Migration to @toplocs/plugin-sdk~~ (Completed)
 - Privacy enhancements with Gun SEA
 - Improved error handling and loading states
 - Test coverage implementation
