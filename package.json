@@ -4,14 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "VITE_DEV=true vite",
+    "dev": "vite",
     "build": "vite build && mv dist/landing.html dist/index.html && touch dist/.nojekyll",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "build-only": "vite build",
+    "preview": "pnpm build && run-p preview:plugin dev",
+    "preview:plugin": "vite preview --port 3007",
+    "test": "vitest",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
