@@ -1928,7 +1928,7 @@ let __tla = Promise.all([
       "update:modelValue"
     ],
     setup(__props, { emit: __emit }) {
-      const apiKey = void 0;
+      const apiKey = "";
       const pinOptions = {
         background: "#fb923c"
       };

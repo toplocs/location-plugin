@@ -7,8 +7,6 @@ const pluginConfig = {
   description: "Share and organize locations within TopLocs spheres",
   author: "TopLocs Team",
   slots: [
-    { entity: "Topic", page: "Info", slot: "Content", component: "InfoContent" },
-    { entity: "Topic", page: "Settings", slot: "Content", component: "SettingsContent" },
     { entity: "Location", page: "Info", slot: "Content", component: "InfoContent" },
     { entity: "Location", page: "Settings", slot: "Content", component: "SettingsContent" }
   ]

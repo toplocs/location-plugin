@@ -10,15 +10,15 @@ let __tla = (async () => {
   let moduleMap = {
     "./PluginConfig": () => {
       dynamicLoadingCss([], false, "./PluginConfig");
-      return __federation_import("./__federation_expose_PluginConfig-HtL14Pxg.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+      return __federation_import("./__federation_expose_PluginConfig-BkeHND2p.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
     },
     "./InfoContent": () => {
       dynamicLoadingCss([], false, "./InfoContent");
-      return __federation_import("./__federation_expose_InfoContent-CXw_jtCq.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+      return __federation_import("./__federation_expose_InfoContent-D-bYaHFS.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
     },
     "./SettingsContent": () => {
       dynamicLoadingCss([], false, "./SettingsContent");
-      return __federation_import("./__federation_expose_SettingsContent-DQUCyPRE.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+      return __federation_import("./__federation_expose_SettingsContent-B4_lKEL9.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
     }
   };
   const seen = {};

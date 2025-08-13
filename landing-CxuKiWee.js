@@ -1,6 +1,6 @@
 import { n as nt, __tla as __tla_0 } from "./style-DB1Y1Nbs.js";
 import { importShared, __tla as __tla_1 } from "./__federation_fn_import-xDAQhvQ6.js";
-import pluginConfig from "./__federation_expose_PluginConfig-HtL14Pxg.js";
+import pluginConfig from "./__federation_expose_PluginConfig-BkeHND2p.js";
 Promise.all([
   (() => {
     try {

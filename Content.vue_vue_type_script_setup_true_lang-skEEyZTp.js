@@ -1,5 +1,5 @@
 import { importShared, __tla as __tla_0 } from "./__federation_fn_import-xDAQhvQ6.js";
-import { u as useMap, a as _sfc_main$5, _ as _sfc_main$6, m as mapProvider, __tla as __tla_1 } from "./mapProvider-DxE_VycM.js";
+import { u as useMap, a as _sfc_main$5, _ as _sfc_main$6, m as mapProvider, __tla as __tla_1 } from "./mapProvider-D1HTT5sv.js";
 let _sfc_main;
 let __tla = Promise.all([
   (() => {
